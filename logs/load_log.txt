@@ -1,0 +1,38 @@
+2026-11-08T01:24:06.571516 - 
+=== INICIO DE CARGA EN NEON (modo transaccional) ===
+2026-11-08T01:24:07.622311 - ❌ ETL abortado: cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "fact_hurtos" references "stg_hurtos".
+HINT:  Truncate table "fact_hurtos" at the same time, or use TRUNCATE ... CASCADE.
+2026-11-08T01:28:25.792996 - 
+=== INICIO DE CARGA EN NEON (modo transaccional) ===
+2026-11-08T01:28:33.500091 - ✅ Staging cargado (656 635 filas).
+2026-11-08T01:28:33.633236 - ✅ dim_fecha poblada.
+2026-11-08T01:28:33.702478 - ✅ dim_departamento poblada.
+2026-11-08T01:28:33.855900 - ✅ dim_municipio poblada.
+2026-11-08T01:28:34.162524 - ✅ dim_arma_medio poblada.
+2026-11-08T01:28:34.368259 - ✅ dim_tipo_hurto poblada.
+2026-11-08T01:28:34.574937 - ✅ dim_genero poblada.
+2026-11-08T01:28:34.778114 - ✅ dim_grupo_etario poblada.
+2026-11-08T01:28:34.881050 - ✅ fact_hurtos cargada (656 635 filas).
+2026-11-08T01:28:35.221045 - ✅ SHA‑256 verificado.
+2026-11-08T01:28:35.487390 - ✅ Número de filas del CSV correcto.
+2026-11-08T01:28:35.699001 - ❌ ETL abortado: Staging row count mismatch: expected 656635, got 0
+2026-11-08T01:30:10.734955 - 
+=== INICIO DE CARGA EN NEON (modo transaccional) ===
+2026-11-08T01:30:21.145053 - ✅ Staging cargado (656 635 filas).
+2026-11-08T01:30:21.210576 - ✅ dim_fecha poblada.
+2026-11-08T01:30:21.277402 - ✅ dim_departamento poblada.
+2026-11-08T01:30:21.345648 - ✅ dim_municipio poblada.
+2026-11-08T01:30:21.527045 - ✅ dim_arma_medio poblada.
+2026-11-08T01:30:21.683618 - ✅ dim_tipo_hurto poblada.
+2026-11-08T01:30:21.889945 - ✅ dim_genero poblada.
+2026-11-08T01:30:22.100188 - ✅ dim_grupo_etario poblada.
+2026-11-08T01:30:22.180818 - ✅ fact_hurtos cargada (656 635 filas).
+2026-11-08T01:30:22.782055 - ✅ SHA‑256 verificado.
+2026-11-08T01:30:23.421948 - ✅ Número de filas del CSV correcto.
+2026-11-08T01:30:23.556665 - ❌ ETL abortado: Staging row count mismatch: expected 656635, got 0
+2026-11-08T01:54:34.033675 - 
+=== INICIO DE CARGA EN NEON (modo transaccional) ===
+2026-11-08T01:54:35.930574 - ❌ ETL abortado: cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "fact_hurtos" references "stg_hurtos".
+HINT:  Truncate table "fact_hurtos" at the same time, or use TRUNCATE ... CASCADE.

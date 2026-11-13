@@ -1,0 +1,12 @@
+pandas
+numpy
+sqlalchemy
+psycopg[binary]
+python-dotenv
+streamlit
+plotly
+scikit-learn
+jupyterlab
+ipykernel
+pytest
+openpyxl
