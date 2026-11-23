@@ -161,8 +161,7 @@ def main():
     else:
         # normalize dept strings: strip, upper, collapse spaces
         dept_norm = df['DEPARTAMENTO'].astype(str).str.strip().apply(lambda x: unicodedata.normalize('NFD', x).encode('ascii','ignore').decode('utf-8')).str.upper()
-# usar coincidencia flexible (contiene 'ATLANT')
-atl_mask = dept_norm.str.contains('ATLANT')
+        # usar coincidencia flexible (contiene 'ATLANT')
         atl_mask = dept_norm == 'ATLANTICO'
         atl_df = df[atl_mask]
         total_atl = len(atl_df)

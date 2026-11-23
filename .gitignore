@@ -15,16 +15,31 @@ Dist/
 # Data files (avoid committing raw/processed datasets)
 /data/raw/
 /data/processed/
+/data/power_bi/
 *.db
 *.sqlite
+
+# Logs and execution traces
+logs/
+*.log
+
+# Assistant and AI agents metadata
+.agents/
 
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
-# VS Code settings
+# VS Code and IDE settings
 .vscode/
+.idea/
 
-
+# Environment variables and credentials (SEGURIDAD ESTRICTA)
 .env
 .env.*
+*.env
 !.env.example
+
+# Temporary and cache files
+tmp/
+*.tmp
+~$*.docx

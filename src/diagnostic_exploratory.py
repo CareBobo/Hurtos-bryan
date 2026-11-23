@@ -121,9 +121,7 @@ md_dup += "- Muestra (máx 20 filas):\n"
 md_dup += "```\n" + dup_exact.head(20).to_string(index=False) + "\n```\n"
 
 md_dup += "- Muestra (máx 20 filas):\n\n"
-md_dup += "\n```
-" + dup_exact.head(20).to_string(index=False) + "\n```
-"
+md_dup += "```\n" + dup_exact.head(20).to_string(index=False) + "\n```\n"
 
 # 3. Duplicados parciales (clave de exploración)
 partial_key = ['DEPARTAMENTO','MUNICIPIO','CODIGO DANE','FECHA HECHO']
@@ -136,9 +134,7 @@ md_dup += "\n## Duplicados parciales (clave de exploración)\n"
 md_dup += f"- Filas involucradas: {dup_partial_rows}\n"
 md_dup += f"- Combinaciones repetidas: {comb_rep_count}\n"
 md_dup += "- Muestra (máx 20 filas):\n"
-md_dup += "\n```
-" + dup_partial.head(20).to_string(index=False) + "\n```
-"
+md_dup += "```\n" + dup_partial.head(20).to_string(index=False) + "\n```\n"
 md_dup += "\n*Nota:* Estas coincidencias pueden no ser errores reales.\n"
 # Write duplicate analysis MD
 dup_md_path = os.path.join('reports','diagnostics','duplicate_analysis.md')

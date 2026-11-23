@@ -1,0 +1,85 @@
+// =============================================================================
+// CATÁLOGO OFICIAL DE MEDIDAS DAX (11 MEDIDAS REALES)
+// Proyecto: Minería de Datos - Hurtos por Modalidades en Colombia
+// Autor: Bryan
+// Total Medidas Reales: 11 fórmulas listas para Power BI Desktop
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// GRUPO 1: VOLUMEN Y RECUENTO DE INCIDENTES (3 Medidas)
+// -----------------------------------------------------------------------------
+
+// 1. Total de Incidentes Globales
+Total Hurtos = COUNTROWS(fact_hurtos)
+
+// 2. Incidentes de Hurto a Motocicletas
+Hurtos Motocicletas = 
+CALCULATE(
+    [Total Hurtos],
+    dim_tipo_hurto[descripcion] = "ARTÍCULO 239. HURTO MOTOCICLETAS"
+)
+
+// 3. Incidentes de Hurto a Automotores
+Hurtos Automotores = 
+CALCULATE(
+    [Total Hurtos],
+    dim_tipo_hurto[descripcion] = "ARTÍCULO 239. HURTO AUTOMOTORES"
+)
+
+// -----------------------------------------------------------------------------
+// GRUPO 2: PARTICIPACIÓN RELATIVA Y TASAS PORCENTUALES (3 Medidas)
+// -----------------------------------------------------------------------------
+
+// 4. Porcentaje de Participación de Motocicletas sobre el Total
+% Hurtos Motos = 
+DIVIDE([Hurtos Motocicletas], [Total Hurtos], 0)
+
+// 5. Porcentaje de Participación de Automotores sobre el Total
+% Hurtos Autos = 
+DIVIDE([Hurtos Automotores], [Total Hurtos], 0)
+
+// 6. Porcentaje de Incidentes Cometidos con Arma de Fuego
+% Uso Arma de Fuego = 
+DIVIDE([Hurtos Arma de Fuego], [Total Hurtos], 0)
+
+// -----------------------------------------------------------------------------
+// GRUPO 3: MODUS OPERANDI Y ARMAS EMPLEADAS (3 Medidas)
+// -----------------------------------------------------------------------------
+
+// 7. Incidentes Perpetrados con Arma de Fuego
+Hurtos Arma de Fuego = 
+CALCULATE(
+    [Total Hurtos],
+    dim_arma_medio[descripcion] = "ARMA DE FUEGO"
+)
+
+// 8. Incidentes Perpetrados con Llave Maestra (Oportunidad / Vulnerabilidad)
+Hurtos Llave Maestra = 
+CALCULATE(
+    [Total Hurtos],
+    dim_arma_medio[descripcion] = "LLAVE MAESTRA"
+)
+
+// 9. Incidentes Perpetrados Sin Empleo de Armas (Factor Oportunidad / Descuido)
+Hurtos Sin Armas = 
+CALCULATE(
+    [Total Hurtos],
+    dim_arma_medio[descripcion] = "SIN EMPLEO DE ARMAS"
+)
+
+// -----------------------------------------------------------------------------
+// GRUPO 4: INTELIGENCIA TEMPORAL Y VARIACIÓN INTERANUAL (2 Medidas)
+// -----------------------------------------------------------------------------
+
+// 10. Volumen de Hurtos en el Mismo Periodo del Año Anterior (Last Year)
+Hurtos LY = 
+CALCULATE(
+    [Total Hurtos],
+    SAMEPERIODLASTYEAR(dim_fecha[fecha])
+)
+
+// 11. Tasa de Crecimiento o Variación Interanual (YoY %)
+Variación YoY % = 
+DIVIDE([Total Hurtos] - [Hurtos LY], [Hurtos LY], 0)
+
+
